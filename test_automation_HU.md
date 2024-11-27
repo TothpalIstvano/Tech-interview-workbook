@@ -6,24 +6,25 @@
 #### ✅ Mi a tesztelés célja? Mi nem az?
 
 A tesztelés célja:
--Hibák felismerése: 
-A tesztelés fő célja, hogy azonosítsa a szoftverben rejlő hibákat vagy anomáliákat.
 
--Minőségbiztosítás: 
-A tesztelés segít a szoftver minőségének biztosításában, és megerősíti, hogy a rendszer a specifikációknak megfelelően működik.
+Hibák felismerése: 
+-A tesztelés fő célja, hogy azonosítsa a szoftverben rejlő hibákat vagy anomáliákat.
 
--Megfelelőség ellenőrzése: 
-Ellenőrzi, hogy a fejlesztett rendszer megfelel-e az üzleti követelményeknek, és hogy a felhasználói igényeknek is eleget tesz.
+Minőségbiztosítás: 
+-A tesztelés segít a szoftver minőségének biztosításában, és megerősíti, hogy a rendszer a specifikációknak megfelelően működik.
+
+Megfelelőség ellenőrzése: 
+-Ellenőrzi, hogy a fejlesztett rendszer megfelel-e az üzleti követelményeknek, és hogy a felhasználói igényeknek is eleget tesz.
 
 Mi nem a tesztelés célja:
--A szoftver biztosítéka: 
-A tesztelés nem garantálja a hibamentességet, csak a hibák felfedezésére szolgál.
+A szoftver biztosítéka: 
+-A tesztelés nem garantálja a hibamentességet, csak a hibák felfedezésére szolgál.
 
--Kódolás vagy fejlesztés helyettesítése: 
-A tesztelés nem a kód megírását vagy a fejlesztési folyamatokat helyettesíti, hanem azok után következik.
+Kódolás vagy fejlesztés helyettesítése: 
+-A tesztelés nem a kód megírását vagy a fejlesztési folyamatokat helyettesíti, hanem azok után következik.
 
--A fejlesztési hibák egyedüli forrása: 
-A tesztelés nem célja az egyes fejlesztői hibák kiderítése, inkább a rendszer átfogó hibáinak feltárása.
+A fejlesztési hibák egyedüli forrása: 
+-A tesztelés nem célja az egyes fejlesztői hibák kiderítése, inkább a rendszer átfogó hibáinak feltárása.
 
 
 #### ✅ Mik a tesztelési alapelvek?
