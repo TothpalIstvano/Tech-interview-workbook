@@ -322,9 +322,13 @@ elkülönítsék, javítsák és ellenőrizzék azt
 
 #### ✅ Mi az API tesztelés és miért hasznos?
 
+- Az API-tesztelés döntő szerepet játszik az alkalmazások megbízhatóságának, teljesítményének és biztonságának biztosításában, különösen egy olyan világban, amely egyre inkább az összekapcsolt szolgáltatásokra támaszkodik. Az API-k tesztelése számos külön előnyt kínál, így a modern fejlesztési és minőségbiztosítási gyakorlatok elengedhetetlen részévé válik.
+
 ##
 
 #### ✅ Mi az adatvezérelt tesztelés és miért hasznos?
+
+It allows testers to handle multiple data sets within a single test. The same script can run with different inputs by separating the data from the test scripts. This approach saves time and makes generating test results more efficient.
 
 ##
 [Solid Principles robot explanation](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898/)
