@@ -277,27 +277,46 @@ elkülönítsék, javítsák és ellenőrizzék azt
 
 #### ✅ Írj le egy jó automatizált tesztet!
 
-
+| Tulajdonság                  | Leírás |
+| - | - |
+| **Megbízható**               | A helyes eredményt adja minden futtatásnál, ha nem történt változás.    |
+| **Karbantartható**           | Könnyen módosítható a rendszer változása esetén.                        |
+| **Gyorsan fut**              | Nem fogja vissza a fejlesztési ciklust.                                 |
+| **Önállóan futathazó**       | Nem függ más tesztektől – önállóan lefuttatható.                        |
+| **Jól dokumentált**          | Érthető, mit tesztel és miért – neve, kommentek, szerkezet.             |
+| **Hasznos visszajelzést ad** | Hibás működés esetén pontos hibaüzenetet ad, nem csak FALSE-t vagy FAIL-t.         |
 
 ##
 
 #### ✅ Mi a Selenium, Selenium IDE és Selenium WebDriver?
+- A Selenium webalkalmazások automatikus tesztelésére szolgáló keretrendszer. Ez széles körben használható eszköz és az egyik legismertebb nyílt forrású teszteszköz.
+- A Selenium IDE egy nyílt forráskódú tesztautomatizálási eszköz, amely rögzítheti és lejátszhatja az interneten végzett műveleteit. Használatával automatizálhatja a webalkalmazások tesztelését.
+- A Selenium WebDriver egy webes keretrendszer, amely lehetővé teszi a böngészők közötti tesztek végrehajtását. Ez az eszköz a webalapú alkalmazások tesztelésének automatizálására szolgál annak ellenőrzésére, hogy az elvárt módon működik-e. A Selenium WebDriver lehetővé teszi a programozási nyelv kiválasztását tesztszkriptek létrehozásához.
 
 ##
 
 #### ✅ Hogyan lehet azonosítani a webes elemeket?
 
+- 
+
 ##
 
 #### ✅ Hogyan lehet várni az elemekre, és mi lehet a probléma? Gyűjtsd össze a lehetséges hibákat és okokat!
+
+
 
 ##
 
 #### ✅ Hasonlítsd össze a POM és a Keyword Driven Testing megközelítéseket!
 
+- A POM a felhasználói felület elemeivel való interakcióra összpontosít, míg a kulcsszóvezérelt tesztelés az alkalmazáson végzett magas szintű műveletekre összpontosít. Együtt használhatók a robusztusabb tesztelési megközelítés érdekében. 
+- Bonyolultság és kódolás: A POM több kódolási képességet igényel, így összetettebb, de rugalmasabb.
+
 ##
 
 #### ✅ Mi a különbség a TDD és BDD között?
+
+- A TDD elsősorban az egységtesztekre és a kódfunkcionalitásra összpontosít, a BDD a rendszer viselkedésére és az érdekelt felekkel való együttműködésre összpontosít, az ATDD pedig elfogadási kritériumok révén összehangolja a fejlesztést a felhasználói követelményekkel.
 
 ##
 
