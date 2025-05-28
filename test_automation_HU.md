@@ -369,11 +369,89 @@ elkülönítsék, javítsák és ellenőrizzék azt
 
 #### ✅ Mik a kihívások és ajánlott eljárások a dinamikusan betöltött webes elemekkel?
 
+**Kihívások:**
+-  **Aszinkron betöltés kezelése**  
+  Az elemek nem egyszerre töltődnek be, ezért nehéz lehet biztosítani, hogy minden szükséges adat vagy elem elérhető legyen egy adott pillanatban.
 
+-  **Tesztelési nehézségek**  
+  Automatizált tesztek (pl. Selenium) gyakran elbuknak, mert az elemek még nem láthatók vagy nem aktívak a DOM-ban a teszt futásakor.
+
+-  **Teljesítményproblémák**  
+  Túl sok dinamikus hívás (pl. API-k) lassíthatja a felhasználói élményt.
+
+- **Reszponzív és kompatibilitási kérdések**  
+  Dinamikus elemek eltérően jelenhetnek meg különböző eszközökön vagy böngészőkben.
+
+
+
+**Ajánlott eljárások:**
+-  **Betöltési állapotok kezelése (loading states)**  
+  Használj „loading” indikátorokat, hogy jelezd a felhasználónak, ha tartalom még töltődik.
+
+-  **Várakozások a tesztekben**  
+  Automatizált teszteknél építs be explicit vagy implicit várakozásokat, amíg az elemek megjelennek.
+
+-  **Lazy loading és optimalizálás**  
+  Csak azt töltsd be, amire tényleg szükség van, és használj cache-elést az ismételt hívások elkerülésére.
+
+-  **Hibatűrés és fallback megoldások**  
+  Ha egy API-hívás vagy elem betöltése hibázik, jeleníts meg alternatív üzenetet vagy tartalmat.
+
+-  **Rendszeres böngészőtesztelés**  
+  Teszteld az oldaladat több böngészőn és eszközön, hogy az eltéréseket időben lásd.
 
 #### ✅ Mik a mobil tesztautomatizálás kihívásai?
 
+#### 1. **Eszköz- és OS-fragmentáció**  
+- **10 000+ különböző eszköz** (kijelzőméretek, processzorok, RAM)  
+- **OS-verziók eltérései** (pl. Android 8-14, iOS 14-17)  
+- *Megoldás:* Cloud-based eszközfarmok (Firebase Test Lab, BrowserStack)
 
+#### 2. **Flaky (Inkonzisztens) Tesztek**  
+- **20-40% false failure rate** (nem determinisztikus viselkedés)  
+- Okok: Hálózati latencia, animációk, háttérfolyamatok  
+- *Megoldás:* Explicit waits, retry mechanizmusok, elemek detektálása (pl. `waitForElement`)
+
+#### 3. **Keretrendszer-limitációk**  
+- **Platformspecifikus eszközök:**  
+  - iOS: Korlátozott Xcode/simulátor API (pl. háttérfolyamatok)  
+  - Android: Accessibility issue-k (TalkBack kompatibilitás)  
+- *Megoldás:* Hibrid megközelítés (Appium + platformnatív eszközök)
+
+#### 4. **Tesztkörnyezet szimulációja**  
+- Valós helyzetek nehéz reprodukálni:  
+  - GPS helyváltoztatás  
+  - Alacsony hálózati sebesség  
+  - Értesítések megszakítják a folyamatot  
+- *Megoldás:* Mockoló eszközök (Android Emulator lokáció spoofing)
+
+#### 5. **UI-folyamatok gyakori változása**  
+- **2-4 hetes release ciklusok** → törött tesztek  
+- *Megoldás:*  
+  - Page Object Model (POM) architektúra  
+  - Accessibility ID-k prioritizálása  
+
+#### 6. **Natív/Hibrid/Webview kontextusváltás**  
+- **Webview elemek nem elérhetők** natív kontextusban  
+- *Példa:* Bejelentkezés Facebook/Google fiókkal  
+- *Megoldás:* Kontextus explicit váltás (pl. Appium `switch_context`)
+
+#### 7. **CI/CD Integráció komplexitása**  
+- Emulátorok/szimulátorok kezelése szerveren  
+- **iOS buildhez macOS hardver kötelező**  
+- *Megoldás:* Dockerizált iOS build (szolgáltatók: Bitrise, CircleCI)
+
+```mermaid
+graph TD
+    A[Kihívás] --> B[Eszköz-fragmentáció]
+    A --> C[Flaky tesztek]
+    A --> D[Keretrendszer limitációk]
+    A --> E[Tesztkörnyezet szimuláció]
+    A --> F[Gyakran változó UI]
+    A --> G[Kontextus váltás]
+    A --> H[CI/CD integráció]
+```
+##
 
 ## Haladó témák
 <img src="https://www.softwaretestinghelp.com/wp-content/qa/uploads/2020/05/DevOps-in-a-Selenium-Testing.png" alt="image" width="320" height="220">
@@ -388,8 +466,95 @@ elkülönítsék, javítsák és ellenőrizzék azt
 ##
 
 #### ✅ Írj le egy Continuous Delivery folyamatot!
+```mermaid
+graph LR
+    A([Verziókezelő]) --> B([CI Folyamat])
+    B --> C([Artefakt Generálás])
+    C --> D([Staging Kiadás])
+    D --> E([Automatikus Tesztek])
+    E --> F([Kiadásra Kész?])
+    F --> G([Manuális Jóváhagyás])
+    G --> H([Termelés Kiadás])
+    H --> I([Figyelés])
+```
+<br>
 
-
+```mermaid
+graph LR
+    A{{Delivery team}} --> B{{Version control}}
+    B --> C{{Build & unit tests}}
+    C --> D{{Automated acceptance tests}}
+    D --> E{{User acceptance tests}}
+    E --> F{{Release}}
+```
 #### ✅ Hasonlítsd össze két népszerű CI rendszert, ezek közül az egyik legyen a Jenkins!
 
+### ✅ Jenkins vs. GitLab CI Összehasonlítás  
+
+#### 1. **Architektúra & Beállítás**  
+| **Jenkins** | **GitLab CI** |  
+|-------------|---------------|  
+| Önálló, szerveralapú Java alkalmazás. Manuális telepítés/szerver konfiguráció szükséges. | Integrált a GitLab platformba. Zero-config a GitLab projektekhez (`.gitlab-ci.yml` elég). |  
+| **Flexibilitás:** Pluggable architektúra (1 800+ plugin). | **Egyszerűség:** Beépített funkciók (Docker integráció, Kubernetes, cache). |  
+
+#### 2. **Konfiguráció**  
+| **Jenkins** | **GitLab CI** |  
+|-------------|---------------|  
+| UI vagy `Jenkinsfile` (Groovy). Komplex pipeline-okhoz kódírás szükséges. | YAML alapú (`.gitlab-ci.yml`). Deklaratív szintaxis, könnyű tanulni. |  
+| **Példa:** Scripted pipeline komplex logikához. | **Példa:** Alapvető build tesztelés 10 sorban. |  
+
+#### 3. **Skálázhatóság**  
+| **Jenkins** | **GitLab CI** |  
+|-------------|---------------|  
+| Szerver-függő: Master + Worker node-ok (manuális skálázás). | Cloud-native: Auto-scaling GitLab Runner-ökkel (AWS, GCP, K8s integráció). |  
+| **Erősség:** Nagyon nagy projektek (pl. bankrendszerek). | **Erősség:** Dinamikus terheléskezelés felhőben. |  
+
+#### 4. **Integrációk**  
+| **Jenkins** | **GitLab CI** |  
+|-------------|---------------|  
+| **Plugin-ök:** Mindenhez van (Jira, Docker, Slack), de verziókonfliktusok gyakoriak. | **Natív támogatás:** Kubernetes, Terraform, SAST/DAST biztonsági szkennelés. |  
+| Külső eszközökhöz kell csatlakoztatni. | Egy platform (kód, CI/CD, issue tracking, container registry). |  
+
+#### 5. **UI & Monitoring**  
+| **Jenkins** | **GitLab CI** |  
+|-------------|---------------|  
+| Funkcionális, de túlterhelt és időtálló kinézet. | Modern, áttekinthető pipeline-vizualizáció. |  
+| Log elemzés nehézkes. | Real-time logok, teszteredmények, artifact letöltés UI-ból. |  
+
+#### 6. **Árazás**  
+| **Jenkins** | **GitLab CI** |  
+|-------------|---------------|  
+| **Nyílt forrás:** Ingyenes, de szerverköltség + adminisztráció. | **Freemium:** Ingyenes privát repo-k (400 perc/hó). Prémium: Auto DevOps, biztonsági jelentések ($19/felhasználó/hó). |  
+
+```mermaid
+pie
+    title Felhasználói preferencia 2024
+    “Jenkins” : 35
+    “GitLab CI” : 45
+    “Egyéb (GitHub Actions, CircleCI)” : 20
+```
+
 #### ✅ Mi a Docker és miért hasznos?
+- Konténerizációs platform:
+  > alkalmazásokat és függőségeiket önálló, izolált egységekbe ("konténerekbe") csomagolja.
+
+Fő előnyök:
+1. 
+- Konténerek = konzisztens környezet fejlesztéstől élesig.
+- Példa: Ha működik a konténer a fejlesztő gépen, működni fog teszt/prod környezetben is.
+
+2. Gyorsabb CI/CD folyamatok
+- Konténerek másodpercek alatt elindulnak (vs. VM percek).
+- Automatikus build/deploy pipeline-ok (pl. GitLab CI + Docker).
+
+3. Erőforrás-hatékonyság
+- Nincs felesleges OS terhelés: 1 szerveren több száz konténer futhat.
+- Kevesebb RAM/CPU felhasználás.
+
+4. Izoláció & biztonság
+- Egyik konténer hibája nem hat másikra.
+- Finomhangolt hozzáférés-vezérlés (Linux namespaces, cgroups).
+
+5. Könnyű skálázhatóság
+- Horizontális skálázás: docker-compose scale web=5 → 5 példány indul.
+- Orchestrátorokkal (Kubernetes) automatikus terhelésalapú skálázás.
