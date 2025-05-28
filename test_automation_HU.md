@@ -29,26 +29,26 @@
 
 #### ✅ Mik a tesztelési alapelvek?
 
-1. A tesztelés hibákat mutat, nem a hibamentességet  
-A tesztelés kimutathatja a hibák jelenlétét, de soha nem garantálja, hogy a rendszer hibamentes. A hibamentesség igazolása nem lehetséges.  
+1. A tesztelés hibákat mutat, nem a hibamentességet:  
+    > A tesztelés kimutathatja a hibák jelenlétét, de soha nem garantálja, hogy a rendszer hibamentes. A hibamentesség igazolása nem lehetséges.  
 
-2. Kimerítő tesztelés nem lehetséges  
-Minden lehetséges esetet lefedő tesztelés kivitelezhetetlen. Ehelyett a tesztelési erőforrásokat kockázatelemzéssel és prioritásokkal kell fókuszálni.  
+2. Kimerítő tesztelés nem lehetséges:  
+    > Minden lehetséges esetet lefedő tesztelés kivitelezhetetlen. Ehelyett a tesztelési erőforrásokat kockázatelemzéssel és prioritásokkal kell fókuszálni.  
 
-3. Korai tesztelés előnyei  
-A hibák korai megtalálása időt és költséget takarít meg. Ezért a tesztelési tevékenységeket minél előbb, a fejlesztési életciklus elején el kell kezdeni.  
+3. Korai tesztelés előnyei:  
+    > A hibák korai megtalálása időt és költséget takarít meg. Ezért a tesztelési tevékenységeket minél előbb, a fejlesztési életciklus elején el kell kezdeni.  
 
-4. Hibafürtök jelensége  
-A hibák gyakran néhány modulban koncentrálódnak. A hibafürtök azonosítása segíthet a hatékonyabb tesztelésben.  
+4. Hibafürtök jelensége:  
+    > A hibák gyakran néhány modulban koncentrálódnak. A hibafürtök azonosítása segíthet a hatékonyabb tesztelésben.  
 
-5. Féregirtó paradoxon  
-Az ismétlődő tesztek idővel kevésbé hatékonyak. Új hibák feltárásához a teszteket frissíteni, bővíteni kell.  
+5. Féregirtó paradoxon:  
+    > Az ismétlődő tesztek idővel kevésbé hatékonyak. Új hibák feltárásához a teszteket frissíteni, bővíteni kell.  
 
-6. Tesztelés a körülmények függvényében  
-A tesztelési megközelítések a projektek jellegétől függően változnak, például biztonságkritikus rendszerekben más szempontok érvényesülnek, mint e-kereskedelmi alkalmazásokban.  
+6. Tesztelés a körülmények függvényében:  
+    > A tesztelési megközelítések a projektek jellegétől függően változnak, például biztonságkritikus rendszerekben más szempontok érvényesülnek, mint e-kereskedelmi alkalmazásokban.  
 
-7. Hibamentesség mítosza  
-Minden hiba megtalálása és javítása sem garantálja a rendszer sikerét. Egy hiba nélküli, de nehezen használható rendszer is megbukhat a gyakorlatban.
+7. Hibamentesség mítosza:  
+    > Minden hiba megtalálása és javítása sem garantálja a rendszer sikerét. Egy hiba nélküli, de nehezen használható rendszer is megbukhat a gyakorlatban.
 
 ##
 
@@ -187,9 +187,7 @@ Agile megközelítés:
 - Hiba dokumentálása (hibajegy létrehozása) ->
 Rögzítjük a hibát egy hibakövető rendszerben.
   - Részletezzük:
-    - milyen környezetben történt,
-a hiba pontos leírása,
-hogyan lehet reprodukálni,
+    > milyen környezetben történt,a hiba pontos leírása,hogyan lehet reprodukálni,
 képernyőképek, naplók, verziószám stb.
 - Hiba elemzése és osztályozása
   - Megállapítjuk a hiba súlyosságát és prioritását.
@@ -289,8 +287,10 @@ elkülönítsék, javítsák és ellenőrizzék azt
 ##
 
 #### ✅ Mi a Selenium, Selenium IDE és Selenium WebDriver?
-- A Selenium webalkalmazások automatikus tesztelésére szolgáló keretrendszer. Ez széles körben használható eszköz és az egyik legismertebb nyílt forrású teszteszköz.
+- A Selenium webalkalmazások automatikus tesztelésére szolgáló keretrendszer. Ez széles körben használható eszköz és az egyik legismertebb nyílt forrású teszteszköz. 
+
 - A Selenium IDE egy nyílt forráskódú tesztautomatizálási eszköz, amely rögzítheti és lejátszhatja az interneten végzett műveleteit. Használatával automatizálhatja a webalkalmazások tesztelését.
+
 - A Selenium WebDriver egy webes keretrendszer, amely lehetővé teszi a böngészők közötti tesztek végrehajtását. Ez az eszköz a webalapú alkalmazások tesztelésének automatizálására szolgál annak ellenőrzésére, hogy az elvárt módon működik-e. A Selenium WebDriver lehetővé teszi a programozási nyelv kiválasztását tesztszkriptek létrehozásához.
 
 ##
@@ -334,36 +334,6 @@ elkülönítsék, javítsák és ellenőrizzék azt
 - **Átfedő elemek (pl. loader, popup)**  
   → Más elem takarja a célelemet, ezért nem érhető el.
 
-
-
-
-###  Várakozás módszerei
-- **Implicit wait** → Globálisan beállított alapvárakozás minden elemre.
-- **Explicit wait** → Meghatározott feltételre (pl. láthatóság, kattinthatóság) várunk.
-- **Fluent wait** → Explicit wait + polling idő + kivételek kezelése.
-
-
-
-### Tipikus problémák és hibák
-- **Elem nem található (NoSuchElementException)**  
-  → Elem nincs a DOM-ban vagy még nem töltődött be.
-
-- **Elem nem látható / rejtett (ElementNotVisibleException)**  
-  → Elem ott van, de nem látszik (pl. display: none, átfedés).
-
-- **Időzítési problémák**  
-  → Az oldal lassan töltődik, várakozás túl rövid.
-
-- **Változó oldalelemek (stale element)**  
-  → Elem időközben újratöltődött, referenciája érvénytelen.
-
-- **Hibás selector**  
-  → Rosszul megírt XPath/CSS selector, rossz elemre hivatkozás.
-
-- **Átfedő elemek (pl. loader, popup)**  
-  → Más elem takarja a célelemet, ezért nem érhető el.
-
-
 ##
 
 #### ✅ Hasonlítsd össze a POM és a Keyword Driven Testing megközelítéseket!
@@ -391,17 +361,35 @@ elkülönítsék, javítsák és ellenőrizzék azt
 
 -  Lehetővé teszi a tesztelők számára, hogy egyetlen teszten belül több adatcsomagot kezeljenek. Ugyanaz a tesztszkript különböző bemenetekkel futtatható azáltal, hogy az adatokat elkülönítik a tesztszkriptektől. Ez a megközelítés időt takarít meg, és hatékonyabbá teszi a teszteredmények előállítását.
 
+## 
+
+#### <center> [Solid Principles robot explanation](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898) </center>
+
 ##
-[Solid Principles robot explanation](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898/)
 
 #### ✅ Mik a kihívások és ajánlott eljárások a dinamikusan betöltött webes elemekkel?
 
+
+
 #### ✅ Mik a mobil tesztautomatizálás kihívásai?
+
+
 
 ## Haladó témák
 <img src="https://www.softwaretestinghelp.com/wp-content/qa/uploads/2020/05/DevOps-in-a-Selenium-Testing.png" alt="image" width="320" height="220">
 
+##
+
 #### ✅ Mi a különbség a CI és CD között?
+- CI:
+    > A Folyamatos Integráció (CI) egy olyan szoftverfejlesztési gyakorlat, amelyben a fejlesztők rendszeresen integrálják kódmódosításaikat egy közös tárolóba, majd automatikus buildelési és tesztelési folyamatok futnak le annak érdekében, hogy gyorsan felismerjék az integrációs problémákat.
+- CD:
+    > A Folyamatos Kézbesítés (CD) egy olyan szoftvermérnöki megközelítés, amelynek célja, hogy a szoftvermódosításokat gyorsan és megbízhatóan juttassák el az éles (production) környezetbe.
+##
+
 #### ✅ Írj le egy Continuous Delivery folyamatot!
+
+
 #### ✅ Hasonlítsd össze két népszerű CI rendszert, ezek közül az egyik legyen a Jenkins!
+
 #### ✅ Mi a Docker és miért hasznos?
