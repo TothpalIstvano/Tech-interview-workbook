@@ -393,3 +393,15 @@ elkülönítsék, javítsák és ellenőrizzék azt
 
 ##
 [Solid Principles robot explanation](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898/)
+
+#### ✅ Mik a kihívások és ajánlott eljárások a dinamikusan betöltött webes elemekkel?
+
+#### ✅ Mik a mobil tesztautomatizálás kihívásai?
+
+## Haladó témák
+<img src="https://www.softwaretestinghelp.com/wp-content/qa/uploads/2020/05/DevOps-in-a-Selenium-Testing.png" alt="image" width="320" height="220">
+
+#### ✅ Mi a különbség a CI és CD között?
+#### ✅ Írj le egy Continuous Delivery folyamatot!
+#### ✅ Hasonlítsd össze két népszerű CI rendszert, ezek közül az egyik legyen a Jenkins!
+#### ✅ Mi a Docker és miért hasznos?
