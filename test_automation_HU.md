@@ -296,13 +296,72 @@ elkülönítsék, javítsák és ellenőrizzék azt
 ##
 
 #### ✅ Hogyan lehet azonosítani a webes elemeket?
-
-- 
+- **ID** → Egyedi azonosító pl. `id="submit"`
+- **Name** → Név pl. `name="email"`
+- **Class** → Osztály pl. `class="button primary"`
+- **XPath** → Útvonal pl. `//div[@id='login']//button`
+- **CSS Selector** → Stílusalapú pl. `div.container > input[type='text']`
 
 ##
 
 #### ✅ Hogyan lehet várni az elemekre, és mi lehet a probléma? Gyűjtsd össze a lehetséges hibákat és okokat!
 
+✅ **Hogyan lehet várni a webes elemekre + tipikus hibák és okaik**
+
+
+###  Várakozás módszerei
+- **Implicit wait** → Globálisan beállított alapvárakozás minden elemre.
+- **Explicit wait** → Meghatározott feltételre (pl. láthatóság, kattinthatóság) várunk.
+- **Fluent wait** → Explicit wait + polling idő + kivételek kezelése.
+
+
+###  Tipikus problémák és hibák
+- **Elem nem található (NoSuchElementException)**  
+  → Elem nincs a DOM-ban vagy még nem töltődött be.
+
+- **Elem nem látható / rejtett (ElementNotVisibleException)**  
+  → Elem ott van, de nem látszik (pl. display: none, átfedés).
+
+- **Időzítési problémák**  
+  → Az oldal lassan töltődik, várakozás túl rövid.
+
+- **Változó oldalelemek (stale element)**  
+  → Elem időközben újratöltődött, referenciája érvénytelen.
+
+- **Hibás selector**  
+  → Rosszul megírt XPath/CSS selector, rossz elemre hivatkozás.
+
+- **Átfedő elemek (pl. loader, popup)**  
+  → Más elem takarja a célelemet, ezért nem érhető el.
+
+
+
+
+###  Várakozás módszerei
+- **Implicit wait** → Globálisan beállított alapvárakozás minden elemre.
+- **Explicit wait** → Meghatározott feltételre (pl. láthatóság, kattinthatóság) várunk.
+- **Fluent wait** → Explicit wait + polling idő + kivételek kezelése.
+
+
+
+### Tipikus problémák és hibák
+- **Elem nem található (NoSuchElementException)**  
+  → Elem nincs a DOM-ban vagy még nem töltődött be.
+
+- **Elem nem látható / rejtett (ElementNotVisibleException)**  
+  → Elem ott van, de nem látszik (pl. display: none, átfedés).
+
+- **Időzítési problémák**  
+  → Az oldal lassan töltődik, várakozás túl rövid.
+
+- **Változó oldalelemek (stale element)**  
+  → Elem időközben újratöltődött, referenciája érvénytelen.
+
+- **Hibás selector**  
+  → Rosszul megírt XPath/CSS selector, rossz elemre hivatkozás.
+
+- **Átfedő elemek (pl. loader, popup)**  
+  → Más elem takarja a célelemet, ezért nem érhető el.
 
 
 ##
@@ -316,7 +375,9 @@ elkülönítsék, javítsák és ellenőrizzék azt
 
 #### ✅ Mi a különbség a TDD és BDD között?
 
-- A TDD elsősorban az egységtesztekre és a kódfunkcionalitásra összpontosít, a BDD a rendszer viselkedésére és az érdekelt felekkel való együttműködésre összpontosít, az ATDD pedig elfogadási kritériumok révén összehangolja a fejlesztést a felhasználói követelményekkel.
+- A TDD elsősorban az egységtesztekre és a kód funkcionalitására összpontosít
+- A BDD a rendszer viselkedésére és az érdekelt felekkel való együttműködésre helyezi a hangsúlyt
+- > Az ATDD az elfogadási kritériumokon keresztül hangolja össze a fejlesztést a felhasználói követelményekkel.
 
 ##
 
@@ -328,7 +389,7 @@ elkülönítsék, javítsák és ellenőrizzék azt
 
 #### ✅ Mi az adatvezérelt tesztelés és miért hasznos?
 
-It allows testers to handle multiple data sets within a single test. The same script can run with different inputs by separating the data from the test scripts. This approach saves time and makes generating test results more efficient.
+-  Lehetővé teszi a tesztelők számára, hogy egyetlen teszten belül több adatcsomagot kezeljenek. Ugyanaz a tesztszkript különböző bemenetekkel futtatható azáltal, hogy az adatokat elkülönítik a tesztszkriptektől. Ez a megközelítés időt takarít meg, és hatékonyabbá teszi a teszteredmények előállítását.
 
 ##
 [Solid Principles robot explanation](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898/)
